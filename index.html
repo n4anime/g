@@ -213,10 +213,10 @@ height: 100%;
 
 #joyZone{
    position:absolute;
-   right: calc(var(--pixel-size) * 4);
-   bottom: calc(var(--pixel-size) * 4);
-   width: calc(var(--pixel-size) * 80);
-   height: calc(var(--pixel-size) * 80);
+   right: calc(var(--pixel-size) * 5);
+   bottom: calc(var(--pixel-size) * 5);
+   width: calc(var(--pixel-size) * 90);
+   height: calc(var(--pixel-size) * 90);
    touch-action: none;
 }
 .corner_topleft,
@@ -1257,7 +1257,7 @@ function showEndScreen(){
 }
 
 async function shareResult(){
-  const box = document.getElementById("shareCard");
+const box = document.getElementById("endOverlayContent");
   try{
     const canvas = await html2canvas(box, {backgroundColor:"#000"});
     canvas.toBlob(async (blob)=>{
@@ -1546,7 +1546,7 @@ var joy = nipplejs.create({
    zone: document.getElementById('joyZone'),
    mode: 'static',
    position: { left: '50%', top: '50%' }, // وسط مربع joyZone
-   size: 90
+   size: 110
 });
 
 joy.on('move', function (evt, data) {
