@@ -249,10 +249,10 @@ position: absolute;
     top: calc(var(--pixel-size) * 2);
     z-index: 5;
     font-family: monospace;
-    font-size: calc(var(--pixel-size) * 14);
+    font-size: calc(var(--pixel-size) * 9);
     background: rgb(255 255 255 / 60%);
-    padding: calc(var(--pixel-size) * 2) calc(var(--pixel-size) * 8);
-    border-radius: calc(var(--pixel-size) * 8);
+    padding: calc(var(--pixel-size) * 2) calc(var(--pixel-size) * 2);
+    border-radius: calc(var(--pixel-size) * 4);
 }
 .hud b{ font-weight: 700; }
 
@@ -409,8 +409,8 @@ body{ font-family: "Baloo Bhaijaan 2", system-ui, sans-serif; }
   color:#fff;
   text-align:center;
 }
-.overlay .box h2{ margin:0 0 10px; font-size:22px; }
-.overlay .box p{ margin:0 0 14px; font-size:18px; }
+.overlay .box h2{ margin:0 0 1px; font-size:22px; }
+.overlay .box p{ margin:0 0 1px; font-size:18px; }
 .overlay .actions{ display:flex; justify-content:center; gap:10px; flex-wrap:wrap; }
 .overlay .actions button{
   border:0;
@@ -436,12 +436,12 @@ body{ font-family: "Baloo Bhaijaan 2", system-ui, sans-serif; }
     margin: 10px;
 display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 1px;
     text-align: right;
     flex-direction: column;
 }
 .box.dialog .dialog-img {
-  width:240px;
+  width:200px;
  
   object-fit:cover;
   border-radius:14px;
@@ -452,7 +452,7 @@ display: flex;
 }
 @media (max-width:520px){
   .box.dialog { flex-direction:column; text-align:center; }
-  .box.dialog .dialog-img { width:240px; }
+  .box.dialog .dialog-img { width:200px; }
 }
 
 /* ===== V11: تثبيت حجم اللعبة ضد Zoom المتصفح (نعكسه على .frame فقط) ===== */
@@ -495,12 +495,12 @@ display: flex;
 
 /* زر المشاركة فقط */
 #endOverlayContent .dialog-body .actions {
-  margin-top: 10px;
+  margin-top: 1px;
 }
 
 /* نعم / لا تحت مع بعض */
 #endOverlayContent > .actions {
-  margin-top: 16px;
+  margin-top: 1px;
   display: flex;
   gap: 10px;
 }
@@ -527,7 +527,8 @@ display: flex;
 
       <div class="hud" id="hud">
          <span><i class="fas fa-feather-alt"></i> <b id="score">0</b></span>
-         <span style="margin-left:calc(var(--pixel-size)*6)"><i class="fa-solid fa-stopwatch"></i> <b id="timer">00:00</b></span>
+         <span style="margin-left:calc(var(--pixel-size)*3)">
+		 <i class="fa-solid fa-stopwatch"></i> <b id="timer">00:00</b></span>
       </div>
 
 
@@ -591,10 +592,10 @@ display: flex;
     
     </div>
 </div>
-    <div class="actions" style="margin-top:10px">
+    <div class="actions" style="margin-top:1px">
       <button class="primary" id="shareBtn"><i class="fa-solid fa-share-nodes"></i> مشاركة</button>
 </div>
-    <p style="margin-top:14px">إعادة اللعبة من جديد؟</p>
+    <p style="margin-top:1px">إعادة اللعبة من جديد؟</p>
     <div class="actions">
       <button class="primary" id="restartYes">نعم</button>
       <button class="ghost" id="restartNo">لا</button>
@@ -607,7 +608,7 @@ display: flex;
     <div class="dialog-body">
 
     <h2>هل أنت متأكد؟</h2>
-    <p style="margin-top:14px">إعادة اللعبة من جديد؟</p>
+    <p style="margin-top:1px">إعادة اللعبة من جديد؟</p>
     <div class="actions">
       <button class="primary" id="confirmRestartYes">نعم</button>
       <button class="ghost" id="confirmRestartNo">لا</button>
@@ -1565,22 +1566,5 @@ joy.on('end', function () {
 </script>
    
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-
-<script>
-// ===== V11: تثبيت حجم اللعبة حتى لو تغيّر Zoom المتصفح =====
-(function(){
-  const frame = document.querySelector(".frame");
-  if(!frame) return;
-
-  function applyCounterZoom(){
-    const z = window.devicePixelRatio || 1;
-    frame.style.transform = `scale(${1/z})`;
-  }
-
-  applyCounterZoom();
-  window.addEventListener("resize", applyCounterZoom);
-})();
-</script>
-
 </body>
 </html> 
